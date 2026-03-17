@@ -1,0 +1,5 @@
+{
+  "name": "LogisticsAI Analytics Dashboard",
+  "description": "Interactive supply chain data analytics dashboard with automated CSV ingestion, tiered analytics, and AI-powered logistics insights.",
+  "requestFramePermissions": []
+}
