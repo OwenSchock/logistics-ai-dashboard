@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Logistics AI Dashboard
 
-# Run and deploy your AI Studio app
+An interactive, AI-powered analytics platform designed to ingest raw supply chain data and instantly generate actionable optimization strategies. 
 
-This contains everything you need to run your app locally.
+Developed by Owen Schock as a technical showcase bridging Data Science and Supply Chain Management, this tool transforms standard CSV exports into comprehensive geospatial, financial, and predictive insights.
 
-View your app in AI Studio: https://ai.studio/apps/a7115f9c-3cd2-470d-8c7d-a3073f0d0ad0
+##  Key Features
 
-## Run Locally
+* **Automated AI Insights:** Integrates directly with the Google Gemini 2.5 REST API to generate professional, natural-language supply chain optimizations based on dataset statistical summaries.
+* **Geospatial Network Mapping:** Visualizes origin-to-destination freight corridors using interactive Plotly.js coordinate maps to identify high-cost or delayed routes.
+* **Time-Series Forecasting:** Calculates safety stock, reorder points, and projects 30-day seasonal demand trends using Recharts.
+* **Interactive ROI Simulator:** A waterfall chart visualization that allows users to model the financial impact of freight and transit time reductions.
+* **Professional PDF Export:** One-click conversion of AI-generated Markdown reports into downloadable, styled PDF documents for stakeholder presentations.
 
-**Prerequisites:**  Node.js
+##  Technical Stack
 
+* **Frontend Framework:** React (TypeScript), Vite
+* **Styling & UI:** Tailwind CSS, Framer Motion, Lucide Icons
+* **Data Visualization:** Recharts, Plotly.js, D3.js
+* **Data Parsing:** PapaParse (Client-side CSV ingestion)
+* **AI Integration:** Google Gemini 2.5 API (Direct REST Fetch)
+* **Document Generation:** jsPDF, html2canvas, React-Markdown
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+##  Getting Started
+
+To run this project locally on your machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/OwenSchock/logistics-ai-dashboard.git](https://github.com/OwenSchock/logistics-ai-dashboard.git)
+   cd logistics-ai-dashboard
+
+2. **Install Dependencies**
+    npm install
+
+3. **Configure the AI Environment**
+    Create a .env.local file in the root directory of the project and add your Google Gemini API key: VITE_GEMINI_API_KEY=your_api_key_here
+
+4. **Start the Development Server**
+    npm run dev
+
+5. **Test the Application**
+    Upload the provided master_portfolio_datasetpublic.csv (located in the project files) to the dashboard to see the geospatial network, predictive forecasting, and AI optimization tools populate with sample freight and inventory data.
