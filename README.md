@@ -29,16 +29,20 @@ To run this project locally on your machine:
    ```bash
    git clone [https://github.com/OwenSchock/logistics-ai-dashboard.git](https://github.com/OwenSchock/logistics-ai-dashboard.git)
    cd logistics-ai-dashboard
-
+    ```
 ### 2. **Install Dependencies:**
+    ```bash
     npm install
-
+    ```
 ### 3. **Configure the AI Environment:**
-    Create a .env.local file in the root directory of the project and add your Google Gemini API key: VITE_GEMINI_API_KEY=your_api_key_here
-
+    Create a .env.local file in the root directory of the project and add your Google Gemini API key: 
+    ```bash
+    VITE_GEMINI_API_KEY=your_api_key_here
+    ```
 ### 4. **Start the Development Server:**
+    ```bash
     npm run dev
-
+    ```
 ### 5. Test the Application:
 Upload the provided sample dataset to see the geospatial network, predictive forecasting, and AI optimization tools populate with freight and inventory data.
 
