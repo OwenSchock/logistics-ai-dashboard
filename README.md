@@ -25,19 +25,22 @@ Developed by Owen Schock as a technical showcase bridging Data Science and Suppl
 
 To run this project locally on your machine:
 
-1. **Clone the repository:**
+ 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/OwenSchock/logistics-ai-dashboard.git](https://github.com/OwenSchock/logistics-ai-dashboard.git)
    cd logistics-ai-dashboard
 
-2. **Install Dependencies**
+### 2. **Install Dependencies:**
     npm install
 
-3. **Configure the AI Environment**
+### 3. **Configure the AI Environment:**
     Create a .env.local file in the root directory of the project and add your Google Gemini API key: VITE_GEMINI_API_KEY=your_api_key_here
 
-4. **Start the Development Server**
+### 4. **Start the Development Server:**
     npm run dev
 
-5. **Test the Application**
-    Upload the provided master_portfolio_datasetpublic.csv (located in the project files) to the dashboard to see the geospatial network, predictive forecasting, and AI optimization tools populate with sample freight and inventory data.
+### 5. Test the Application:
+Upload the provided sample dataset to see the geospatial network, predictive forecasting, and AI optimization tools populate with freight and inventory data.
+
+🔗 **[Download the Master Portfolio Dataset here](https://github.com/OwenSchock/logistics-ai-dashboard/raw/refs/heads/main/master_portfolio_dataset.csv)**
+    
