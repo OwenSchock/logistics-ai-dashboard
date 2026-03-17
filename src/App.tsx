@@ -169,20 +169,11 @@ export default function App() {
 
   const generateAIReport = async () => {
     if (data.length === 0) return;
-    
-    // 1. Grab the key directly from Vite's environment variables
-    const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-    
-    if (!API_KEY) {
-      setError("API Key not found in environment variables.");
-      return;
-    }
 
     setIsAnalyzing(true);
     setError(null);
 
     try {
-      // 2. Prepare the Data Summary
       const statsSummary = headers.map(h => {
         const values = data.map(d => d[h]).filter(v => v !== null && v !== undefined);
         const isNumeric = typeof values[0] === 'number';
@@ -202,31 +193,26 @@ export default function App() {
         Identify 3 actionable logistics optimizations in clean Markdown format.
       `;
 
-      // 3. THE INFALLIBLE FETCH (Updated to gemini-2.5-flash)
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{ text: promptText }]
-            }]
-          })
-        }
-      );
+      // THE FIX: We are now calling your secure Vercel backend at '/api/generate'
+      // The browser no longer knows Google or the API key exists.
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: promptText }]
+          }]
+        })
+      });
 
       const result = await response.json();
 
-      // 4. Handle API Errors gracefully
       if (!response.ok) {
-        console.error("Google API Detailed Error:", result);
-        throw new Error(result.error?.message || 'Failed to communicate with Gemini API');
+        throw new Error(result.error?.message || result.error || 'Failed to communicate with backend');
       }
 
-      // 5. Extract the text safely
       if (result.candidates && result.candidates[0].content.parts[0].text) {
         setAiReport(result.candidates[0].content.parts[0].text);
       } else {
@@ -234,7 +220,7 @@ export default function App() {
       }
 
     } catch (err: any) {
-      console.error("Direct API Error:", err);
+      console.error("Secure API Error:", err);
       setError(`Analysis failed: ${err.message}`);
     } finally {
       setIsAnalyzing(false);
