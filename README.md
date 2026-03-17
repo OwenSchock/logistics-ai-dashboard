@@ -1,4 +1,4 @@
-# Logistics AI Dashboard 🚚🤖
+# Logistics AI Dashboard 
 
 **[View Live Demo](https://logistics-ai-dashboard.vercel.app/)**
 
